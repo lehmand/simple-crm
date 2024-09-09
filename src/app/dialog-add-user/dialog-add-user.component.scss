@@ -1,0 +1,11 @@
+.dialog {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.name-fields,
+.adress-fields {
+    display: flex;
+    gap: 8px;
+}

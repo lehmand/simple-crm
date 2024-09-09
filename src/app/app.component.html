@@ -5,18 +5,20 @@
     </div>
 
     <ul class="list">
-      <li><mat-icon>dashboard</mat-icon>Dashboard</li>
-      <li><mat-icon>person</mat-icon>User</li>
+      <li [routerLink]="['/dashboard']"><mat-icon>dashboard</mat-icon>Dashboard</li>
+      <li [routerLink]="['/user']"><mat-icon>person</mat-icon>User</li>
     </ul>
   </mat-drawer>
 
   <div class="sidenav-content">
-    <mat-toolbar>
+    <mat-toolbar class="toolbar">
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <span>Simple CRM</span>
     </mat-toolbar>
+
+    <router-outlet></router-outlet>
   </div>
 
 </mat-drawer-container>
