@@ -4,19 +4,25 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatTooltipModule, DialogAddUserComponent],
+  imports: [
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule,
+    DialogAddUserComponent,
+    MatCardModule
+  ],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.scss'
+  styleUrl: './user.component.scss',
 })
 export class UserComponent {
-  constructor(private dialog: MatDialog){}
+  constructor(private dialog: MatDialog) {}
 
-  openDialog(){
+  openDialog() {
     this.dialog.open(DialogAddUserComponent);
   }
 }

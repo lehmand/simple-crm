@@ -3,3 +3,38 @@
     right: 32px;
     bottom: 32px;
 }
+
+mat-card {
+    margin: 16px 56px;
+}
+
+mat-card-content {
+    padding: 16px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+        height: 48px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.177);
+        cursor: pointer;
+
+        &:first-child {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.293);
+            cursor: unset;
+        }
+
+        &:last-child {
+            border-bottom: unset;
+        }
+    }
+
+    th,
+    td {
+        text-align: start;
+        padding-left: 16px;
+    }
+
+}
