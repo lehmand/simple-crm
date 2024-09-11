@@ -1,21 +1,18 @@
 <mat-card appearance="outlined">
   <mat-card-content>
     <table>
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>City</th>
-        </tr>
-        <tr>
-            <td>TEST</td>
-            <td>TEST</td>
-            <td>TEST</td>
-        </tr>
-        <tr>
-            <td>TEST</td>
-            <td>TEST</td>
-            <td>TEST</td>
-        </tr>
+      <tr>
+        <th>Name</th>
+        <th>Birthdate</th>
+        <th>Address</th>
+        <th>City</th>
+      </tr>
+      <tr *ngFor="let user of usersAsArray">
+        <td>{{ user.lastName }}, {{ user.firstName }}</td>
+        <td>{{ user.birthDate }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.zipCode }}, {{ user.city }}</td>
+      </tr>
     </table>
   </mat-card-content>
 </mat-card>
