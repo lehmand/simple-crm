@@ -6,7 +6,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { User } from '../models/models.class';
+import { User } from '../models/users.class';
 import { CommonModule } from '@angular/common';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 
