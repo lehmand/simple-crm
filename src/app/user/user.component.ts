@@ -5,9 +5,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
-import { Firestore, getDocs, collection } from '@angular/fire/firestore';
+import { Firestore, collection } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
-import { onSnapshot, query, QuerySnapshot } from 'firebase/firestore';
+import { onSnapshot, query } from 'firebase/firestore';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -18,7 +19,8 @@ import { onSnapshot, query, QuerySnapshot } from 'firebase/firestore';
     MatTooltipModule,
     DialogAddUserComponent,
     MatCardModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
@@ -26,7 +28,6 @@ import { onSnapshot, query, QuerySnapshot } from 'firebase/firestore';
 export class UserComponent implements OnInit {
   constructor(private dialog: MatDialog, private db: Firestore) {}
 
-  userFromDb: any;
   usersAsArray: any[] = [];
 
   openDialog() {
@@ -37,8 +38,12 @@ export class UserComponent implements OnInit {
     const q = query(collection(this.db, 'users'));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        this.usersAsArray.push(doc.data());
+        this.usersAsArray.push({
+          id: doc.id,
+          ...doc.data()
+        });
       })
     })
+    console.log(this.usersAsArray)
   }
 }

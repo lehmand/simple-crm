@@ -4,12 +4,14 @@
       <tr>
         <th>Name</th>
         <th>Birthdate</th>
+        <th>Email</th>
         <th>Address</th>
         <th>City</th>
       </tr>
-      <tr *ngFor="let user of usersAsArray">
+      <tr *ngFor="let user of usersAsArray" [routerLink]="['/user', user.id]">
         <td>{{ user.lastName }}, {{ user.firstName }}</td>
         <td>{{ user.birthDate }}</td>
+        <td>{{ user.email }}</td>
         <td>{{ user.address }}</td>
         <td>{{ user.zipCode }}, {{ user.city }}</td>
       </tr>
