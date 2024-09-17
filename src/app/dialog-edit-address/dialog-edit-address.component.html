@@ -1,10 +1,11 @@
+<mat-progress-bar *ngIf="loading"  mode="indeterminate"></mat-progress-bar>
 <mat-dialog-content class="dialog">
   <h6>Edit address</h6> 
   <mat-form-field>
     <mat-label>Address</mat-label>
     <input [disabled]="loading" matInput [(ngModel)]="user.address"/>
   </mat-form-field>
-  <div class="adress-fields">
+  <div class="address-fields">
     <mat-form-field>
       <mat-label>Zip code</mat-label>
       <input [disabled]="loading" matInput [(ngModel)]="user.zipCode"/>
@@ -17,5 +18,5 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button [disabled]="loading" mat-button mat-dialog-close>Cancel</button>
-  <button [disabled]="loading" mat-button cdkFocusInitial>Save</button>
+  <button [disabled]="loading" mat-button cdkFocusInitial (click)="updateUser()">Save</button>
 </mat-dialog-actions>
