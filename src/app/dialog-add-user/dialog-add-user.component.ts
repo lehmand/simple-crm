@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { User } from '../models/users.class';
 import { CommonModule } from '@angular/common';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, FirestoreModule } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -21,7 +21,8 @@ import { Firestore, collection, addDoc } from '@angular/fire/firestore';
     MatInputModule,
     MatDatepickerModule,
     CommonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    FirestoreModule
   ],
   templateUrl: './dialog-add-user.component.html',
   styleUrl: './dialog-add-user.component.scss',

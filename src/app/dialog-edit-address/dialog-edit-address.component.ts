@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
@@ -27,7 +27,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 export class DialogEditAddressComponent {
 
   loading: boolean = false;
-  user!: any;
+  user!: User;
   userId: any;
 
   constructor(private db: Firestore, private dialogRef: MatDialogRef<DialogEditAddressComponent>){}
@@ -36,7 +36,7 @@ export class DialogEditAddressComponent {
     this.loading = true;
     const docRef = doc(this.db, 'users', this.userId)
 
-    await updateDoc(docRef, this.user.toJSON())
+    await setDoc(docRef, this.user.toJSON())
 
     setTimeout(() => {
       this.loading = false;

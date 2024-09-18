@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 
 import { UserDetailComponent } from './user-detail.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFireStoreConfig } from '../app.config';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
@@ -8,7 +13,16 @@ describe('UserDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserDetailComponent]
+      imports: [
+        UserDetailComponent,
+        RouterModule.forRoot([]),
+      ],
+      providers: [
+        provideFirebaseApp(() =>
+          initializeApp(getFireStoreConfig())
+        ),
+        provideFirestore(() => getFirestore()),
+      ]
     })
     .compileComponents();
 

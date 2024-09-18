@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -46,7 +46,7 @@ export class DialogEditUserDetailsComponent{
     this.user.birthDate = this.birthDate?.getTime();
     const docRef = doc(this.db, 'users', this.userId)
 
-    await updateDoc(docRef, this.user.toJSON())
+    await setDoc(docRef, this.user.toJSON())
 
     setTimeout(() => {
       this.loading = false;
