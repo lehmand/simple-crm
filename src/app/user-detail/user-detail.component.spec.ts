@@ -5,6 +5,9 @@ import { UserDetailComponent } from './user-detail.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFireStoreConfig } from '../app.config';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { User } from '../models/users.class';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 describe('UserDetailComponent', () => {
@@ -16,6 +19,7 @@ describe('UserDetailComponent', () => {
       imports: [
         UserDetailComponent,
         RouterModule.forRoot([]),
+        BrowserAnimationsModule
       ],
       providers: [
         provideFirebaseApp(() =>
@@ -28,6 +32,27 @@ describe('UserDetailComponent', () => {
 
     fixture = TestBed.createComponent(UserDetailComponent);
     component = fixture.componentInstance;
+
+    component.user = {
+      firstName: 'daniel',
+      lastName: 'test',
+      address: 'strasse',
+      zipCode: 23428,
+      city: 'monnem',
+      email: 'asdafatalkfa.de',
+      toJSON() {
+        return {
+          firstName: this.firstName, 
+           lastName: this.lastName, 
+           birthDate: this.birthDate,
+           address: this.address, 
+           zipCode: this.zipCode, 
+           city: this.city, 
+           email: this.email
+        }
+      },
+    }
+
     fixture.detectChanges();
   });
 

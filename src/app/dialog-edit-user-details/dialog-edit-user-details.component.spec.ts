@@ -6,6 +6,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFireStoreConfig } from '../app.config';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_NATIVE_DATE_FORMATS, NativeDateAdapter } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DialogEditUserDetailsComponent', () => {
   let component: DialogEditUserDetailsComponent;
@@ -13,7 +14,7 @@ describe('DialogEditUserDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DialogEditUserDetailsComponent],
+      imports: [DialogEditUserDetailsComponent, BrowserAnimationsModule],
       providers: [
         {provide: DateAdapter, useClass: NativeDateAdapter}, {provide: MAT_DATE_FORMATS, useValue: MAT_NATIVE_DATE_FORMATS},
         provideFirebaseApp(() =>

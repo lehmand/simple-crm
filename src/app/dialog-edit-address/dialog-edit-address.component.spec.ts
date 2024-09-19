@@ -5,6 +5,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFireStoreConfig } from '../app.config';
 import { MatDialogRef } from '@angular/material/dialog';
+import { User } from '../models/users.class';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DialogEditAddressComponent', () => {
   let component: DialogEditAddressComponent;
@@ -12,7 +14,7 @@ describe('DialogEditAddressComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DialogEditAddressComponent],
+      imports: [DialogEditAddressComponent, BrowserAnimationsModule],
       providers: [
         provideFirebaseApp(() =>
           initializeApp(getFireStoreConfig())
